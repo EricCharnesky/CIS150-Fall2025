@@ -6,6 +6,142 @@ using namespace std;
 
 int main()
 {
+    int denominator;
+    cout << "Enter a demoninator" << endl;
+    cin >> denominator;
+
+    double result = 1.0 / denominator;
+
+    if ( fabs(result - .333333333) < .00000001 ) {
+        cout << "You entered 3" << endl;
+    }
+    else {
+        cout << "you didn't enter 3" << endl;
+    }
+
+
+
+    string message;
+    cout << "Enter a message to encrypt" << endl;
+    cin >> message;
+
+    // feels bad, needs loops
+    if (message.find("e") == string::npos) {
+        message.replace(message.find("e"), 1, "z");
+    }
+    if (message.find("e") == string::npos) {
+        message.replace(message.find("e"), 1, "z");
+    }
+    if (message.find("e") == string::npos) {
+        message.replace(message.find("e"), 1, "z");
+    }
+    
+    message.replace(message.find("a"), 1, "b");
+
+    cout << message;
+
+    string emailAddress;
+    cout << "Enter your email address" << endl;
+    cin >> emailAddress;
+
+    if (emailAddress.find("@") == string::npos) {
+        cout << "invalid email addresss" << endl;
+    }
+    else {
+        int indexOfAt = emailAddress.find("@");
+        cout << "user part of the email is: " << emailAddress.substr(0, indexOfAt) << endl;
+        cout << "domain part of the email is " << emailAddress.substr(indexOfAt + 1) << endl;
+    }
+
+
+    const int TARIFF_ORDER_MINIMUM = 800;
+    const double TARIFF_RATE_INDIA = 1;
+    const double TARIFF_RATE_BRAZIL = .5;
+    double orderCost;
+    cout << "Enter the cost of your international order so we can caluclate tariffs" << endl;
+    cin >> orderCost;
+
+    double tariffCost;
+    double tariffRate = 0;
+
+    string countryOfOrigin;
+    cout << "What country did this order come from" << endl;
+    cin >> countryOfOrigin;
+
+    if (orderCost < TARIFF_ORDER_MINIMUM) {
+        tariffRate = 0;
+    }
+    else if (countryOfOrigin == "USA") {
+        tariffRate = 0;
+    }
+    else if (countryOfOrigin == "India")
+    {
+        tariffRate = TARIFF_RATE_INDIA;
+    }
+    else if (countryOfOrigin == "Brazil") {
+        tariffRate = TARIFF_RATE_BRAZIL;
+    }
+
+    tariffCost = orderCost < 800 ? 0 : orderCost * tariffRate;
+
+    if (orderCost < 800) {
+        tariffCost = 0;
+    }
+    else {
+        tariffCost = orderCost * tariffRate;
+    }
+
+    cout << "Your tariff cost is: $" << tariffCost << endl;
+
+
+
+    double percentage;
+    cout << "Enter your grade percentage ( 1-100 ) " << endl;
+    cin >> percentage;
+
+    // we can do better next chapter
+    if (percentage < 1 || percentage > 100) {
+        cout << "Invalid percentage, please enter 1-100" << endl;
+        cin >> percentage;
+    }
+
+    if (percentage >= 94) {
+        cout << "You have an A" << endl;
+    }
+    // we know it can't be more than 94
+    // same as
+    //if ( percentage < 94 && percentage >= 90 )
+    else if (percentage >= 90) {
+        cout << "A-" << endl;
+    }
+    else if (percentage >= 87) {
+        cout << "B+" << endl;
+    }
+    else if (percentage >= 84) {
+        cout << "B" << endl;
+    }
+    else if (percentage >= 80) {
+        cout << "B-" << endl;
+    }
+    else if (percentage >= 77) {
+        cout << "C+" << endl;
+    }
+    else if (percentage >= 74) {
+        cout << "C" << endl;
+    }
+    else if (percentage >= 70) {
+        cout << "C-" << endl;
+    }
+    else if (percentage >= 67) {
+        cout << "D-" << endl;
+    }
+    else if (percentage >= 64) {
+        cout << "D" << endl;
+    }
+    else {
+        cout << "F" << endl;
+    }
+
     cout << "Hello World!" << endl;
     cout << "How much money do you have in your pocket?" << endl;
 
