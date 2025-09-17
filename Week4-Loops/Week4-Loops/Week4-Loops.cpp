@@ -6,30 +6,36 @@ using namespace std;
 
 int main()
 {
-    // bing "c++ srand time"
     srand(time(0));
-    int luckyNumber = rand() % 100 + 1;
+    char playAgain = 'y';
 
-    cout << "Guess a number 1 - 100: " << endl;
+    while (playAgain == 'y') {
 
-    int guess;
-    cin >> guess;
+        // bing "c++ srand time"
+        
+        int luckyNumber = rand() % 10 + 1;
 
-    // runs if the condition is true
-    while (guess != luckyNumber) {
-        if (guess < luckyNumber) {
-            cout << "too low!" << endl;
-        }
-        else {
-            cout << "too high!" << endl;
-        }
-        cout << "Guess again: " << endl;
+        cout << "Guess a number 1 - 10: " << endl;
+
+        int guess;
         cin >> guess;
-    } // go back and check the condition
+
+        // runs if the condition is true
+        while (guess != luckyNumber) {
+            if (guess < luckyNumber) {
+                cout << "too low!" << endl;
+            }
+            else {
+                cout << "too high!" << endl;
+            }
+            cout << "Guess again: " << endl;
+            cin >> guess;
+        } // go back and check the condition
 
 
-    cout << "You guessed it!" << endl;
+        cout << "You guessed it!" << endl;
 
-
-
+        cout << "Do you want to play again? (y/n)" << endl;
+        cin >> playAgain;
+    }
 }
