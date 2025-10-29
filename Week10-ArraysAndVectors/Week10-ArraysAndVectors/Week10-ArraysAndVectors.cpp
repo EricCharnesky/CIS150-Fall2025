@@ -1,7 +1,7 @@
 
 #include <iostream>
-
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -32,6 +32,41 @@ int sumOfArray(int numbers[], int size) {
 
 int main()
 {
+    vector<string> names;
+    vector<int> jerseyNumbers;
+
+    string input;
+    cout << "Enter a player name or QUIT to stop" << endl;
+    getline(cin, input);
+
+    int jerseyNumber;
+
+    while (input != "QUIT") {
+        names.push_back(input);
+        cout << "Enter the jersey number for " << input << endl;
+        cin >> jerseyNumber;
+        jerseyNumbers.push_back(jerseyNumber);
+
+        cout << "Enter a player name or QUIT to stop" << endl;
+        getline(cin, input);
+        getline(cin, input);
+    }
+
+    cout << "Enter a jersey number to lookup" << endl;
+    cin >> jerseyNumber;
+
+    bool match = false;
+    for (int index = 0; index < jerseyNumbers.size(); index++) {
+        if (jerseyNumbers.at(index) == jerseyNumber) {
+            cout << "That number belongs to " << names.at(index) << endl;
+            match = true;
+        }
+    }
+    if (!match) {
+        cout << "Couldn't find that jersey number" << endl;
+    }
+
+
     int numbers[5];
 
     // first position is index 0
